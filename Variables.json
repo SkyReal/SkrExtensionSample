@@ -1,0 +1,17 @@
+{
+	"ExtensionsPlugins":
+	[
+		"SampleSkrExtension"
+	],
+	"InstallerName":"SampleSkrExtension",
+	"ProductUpgradeCode":"641C1FE1-7B3E-4184-92B4-DD701FE7F4E9",
+	"Version":"1.0.0",
+	"UnrealEditorEnvironmentVariable": "UE5_3_INSTALL_DIR",
+	"SkyRealRelease":"1.18",
+	"SkyRealPatch":"latest",
+	"PluginDownloadDir":"ressources\\skrplugins",
+	"OutputBuildDir":"Output\\Build",
+	"OutputInstallDir":"Output\\Install",
+	"InputUnrealProject": "src\\Playground.uproject"
+	
+}

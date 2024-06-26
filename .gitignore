@@ -53,7 +53,7 @@ csx/
 *.build.csdef
 
 # UE Plugins ressources
-/ressources/*
+/ressources/skrplugins/*
 
 # UE Config
 /src/Config/DefaultEditor.ini
@@ -61,10 +61,10 @@ csx/
 
 # UE Plugins Symlinks
 # Symlinks are seen as files by Git the exclusion must not end with a slash
+/src/Content/MetaHumans
 /src/Plugins/*
 # Add here all you plugins
-#!/src/Plugins/SkrExtension1/
-#!/src/Plugins/SkrExtension2/
+!/src/Plugins/SampleSkrExtension/
 
 # SkyReal plugins temp
 /src/Content/__ExternalActors__
