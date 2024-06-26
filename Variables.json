@@ -5,17 +5,18 @@
 	],
 	"SkyRealPluginsToIgnore":
 	[
-		"TeamSpeak_SDK"
+		"TeamSpeak_SDK",
+		"SkrCompass"
 	],
 	"OnlineSkyRealPluginURL":"https://download.sky-real.com/SkyRealDownload/SkyRealSuite",
 	"RemoteSkyRealPluginDirectory":"\\\\192.168.0.6\\SkyRealDownload\\SkyRealSuite",
-	"SkyRealPluginRelease":"1.18",
+	"SkyRealPluginRelease":"master",
 	"SkyRealPluginPatch":"latest",
 	"InstallerName":"SampleSkrExtension",
 	"ProductUpgradeCode":"641C1FE1-7B3E-4184-92B4-DD701FE7F4E9",
 	"Version":"1.0.0",
-	"UnrealEditorEnvironmentVariable": "UE5_3_INSTALL_DIR",
-	"SkyRealVersion":"1.18",
+	"UnrealEditorEnvironmentVariable": "UE5_4_INSTALL_DIR",
+	"SkyRealVersion":"1.19",
 	"PluginDownloadDir":"ressources\\skrplugins",
 	"OutputBuildDir":"Output\\Build",
 	"OutputInstallDir":"Output\\Install",
