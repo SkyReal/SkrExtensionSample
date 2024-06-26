@@ -3,6 +3,10 @@
 	[
 		"SampleSkrExtension"
 	],
+	"SkyRealPluginsToIgnore":
+	[
+		"TeamSpeak_SDK"
+	],
 	"InstallerName":"SampleSkrExtension",
 	"ProductUpgradeCode":"641C1FE1-7B3E-4184-92B4-DD701FE7F4E9",
 	"Version":"1.0.0",
