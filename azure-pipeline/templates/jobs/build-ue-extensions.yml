@@ -7,6 +7,7 @@ jobs:
           demands:
               - UEAgent -equals true
               - UE5_3_INSTALL_DIR
+              - NSIS
         
       steps:
           # Initialize build

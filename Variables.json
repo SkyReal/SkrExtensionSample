@@ -7,6 +7,8 @@
 	[
 		"TeamSpeak_SDK"
 	],
+	"OnlineSkyRealPluginURL":"https://download.sky-real.com/SkyRealDownload/SkyRealSuite",
+	"RemoteSkyRealPluginDirectory":"\\\\192.168.0.6\\SkyRealDownload\\SkyRealSuite",
 	"InstallerName":"SampleSkrExtension",
 	"ProductUpgradeCode":"641C1FE1-7B3E-4184-92B4-DD701FE7F4E9",
 	"Version":"1.0.0",
