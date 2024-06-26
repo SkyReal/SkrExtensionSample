@@ -1,0 +1,18 @@
+trigger: none 
+
+schedules:
+    - cron: "0 0 * * *"
+      displayName: Daily midnight build
+      always: false
+      branches:
+          include:
+              - master
+              - release/*
+
+pool:
+    name: "Default"
+
+stages:
+    - stage: Build
+      jobs:
+          - template: ./templates/jobs/build-ue-extensions.yml

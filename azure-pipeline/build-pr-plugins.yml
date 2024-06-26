@@ -1,0 +1,10 @@
+# PR Policies trigger this pipeline
+trigger: none 
+
+pool:
+    name: "Default"
+
+stages:
+    - stage: Build
+      jobs:
+          - template: ./templates/jobs/build-ue-extensions.yml

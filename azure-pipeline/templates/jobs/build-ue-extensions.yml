@@ -1,0 +1,40 @@
+jobs:
+    - job: BuildUEExtension
+      timeoutInMinutes: 360
+      displayName: Build UE Extension
+      pool:
+          name: "Default"
+          demands:
+              - UEAgent -equals true
+              - UE5_3_INSTALL_DIR
+        
+      steps:
+          # Initialize build
+          - template: ../steps/restore-repo.yml
+            parameters:
+              cleanCheckout: true
+          
+          # Build extension
+          - pwsh: |
+              $Variables = ./ressources/SkrExtensionScripts/scripts/Get-Variables.ps1
+              $OutputInstallDir = $Variables.OutputInstallDir
+              $InstallerName = $Variables.InstallerName
+              Write-Host "##vso[task.setvariable variable=outputInstallDir;]${OutputInstallDir}"
+              Write-Host "##vso[task.setvariable variable=installerName;]${InstallerName}"
+              ./ressources/SkrExtensionScripts/scripts/Build-Repository.ps1
+            displayName: "Build repository"
+          
+          - task: ArchiveFiles@2
+            displayName: "Archive extension"
+            inputs:
+                rootFolderOrFile: "$(outputInstallDir)"
+                includeRootFolder: false
+                sevenZipCompression: normal
+                archiveFile: "$(build.artifactStagingDirectory)/binaries/$(installerName).zip"
+
+          # Push artifacts
+          - task: PublishPipelineArtifact@1
+            displayName: "Push extension Binaries"
+            inputs:
+                targetPath: "$(build.artifactStagingDirectory)/binaries/$(installerName).zip"
+                artifact: '$(installerName)'

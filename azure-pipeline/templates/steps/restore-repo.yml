@@ -1,0 +1,20 @@
+parameters:
+    - name: checkout
+      type: string
+      default: self
+      values:
+          - self
+          - none
+    - { name: cleanCheckout, type: boolean }
+
+steps:
+    - checkout: ${{ parameters.checkout }}
+      lfs: true
+      fetchDepth: 1
+      submodules: recursive
+      clean: ${{ parameters.cleanCheckout }}
+
+    - ${{ if ne( parameters.checkout, 'none') }}:
+          - pwsh: |
+                ./ressources/SkrExtensionScripts/scripts/Setup-Repository.ps1
+            displayName: "Setup repository"
