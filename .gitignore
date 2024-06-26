@@ -1,0 +1,78 @@
+# Basic ignore file extensions
+
+*.dll
+*.db
+*.exe
+*.exp
+*.lib
+*.tlog
+*.idb
+
+# Visual C++ cache files
+ipch/
+*.aps
+*.ncb
+*.opendb
+*.opensdf
+*.sdf
+*.cachefile
+*.VC.db
+*.VC.VC.opendb
+
+# Visual Studio profiler
+*.psess
+*.vsp
+*.vspx
+*.sap
+.vs
+
+# Visual Studio cache files
+# files ending in .cache can be ignored
+*.[Cc]ache
+# but keep track of directories ending in .cache
+!*.[Cc]ache/
+
+# JetBrains Rider
+.idea/
+*.sln.iml
+
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+bld/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+
+# Microsoft Azure Build Output
+csx/
+*.build.csdef
+
+# UE Plugins ressources
+/ressources/*
+
+# UE Config
+/src/Config/DefaultEditor.ini
+/src/Config/DefaultInput.ini
+
+# UE Plugins Symlinks
+# Symlinks are seen as files by Git the exclusion must not end with a slash
+/src/Plugins/*
+# Add here all you plugins
+#!/src/Plugins/SkrExtension1/
+#!/src/Plugins/SkrExtension2/
+
+# SkyReal plugins temp
+/src/Content/__ExternalActors__
+/src/Content/__ExternalObjects__
+/src/DerivedDataCache/*
+/src/Intermediate/*
+/src/Platforms/*
+/src/Saved/*
+
+# Exclude build directories
+/Output/*

@@ -1,0 +1,3 @@
+[submodule "ressources/SkrExtensionScripts"]
+	path = ressources/SkrExtensionScripts
+	url = https://github.com/SkyReal/SkrExtensionScripts.git
