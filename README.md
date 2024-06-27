@@ -24,7 +24,9 @@ This repository contains LFS files. Sometimes (for AzureDevOps for example), the
 
 ## Build repository
 To customize this template for building your own extension plugins, follow these steps after repository setup:
-1. Delete sample project in `\src\Plugins\SampleSkrExtension`
+1. Delete following sample project in `\src\Plugins`:
+	* `SampleSkrExtension`
+	* `SkrCat_RightMenuExtension`
 2. Open `\src\Playground.uproject` with Unreal editor and create as many plugins as needed.
 	* Go to `edit\plugins`
 	* On the top left corner, click `+ Add`

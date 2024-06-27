@@ -39,3 +39,7 @@ jobs:
             inputs:
                 targetPath: "$(build.artifactStagingDirectory)/binaries/$(installerName).zip"
                 artifact: '$(installerName)'
+                
+                
+          # Publish output
+          - template: ../steps/deploy-installer.yml
