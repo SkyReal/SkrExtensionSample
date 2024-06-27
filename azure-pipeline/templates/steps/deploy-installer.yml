@@ -1,0 +1,54 @@
+steps:
+
+    - ${{ if eq(variables['build.reason'], 'PullRequest') }}:
+          - pwsh: |
+                $Variables = ./ressources/SkrExtensionScripts/scripts/Get-Variables.ps1
+                $Version = $Variables.Version
+                $OutputInstallDir = $Variables.OutputInstallDir
+                $RemoteSkyRealPluginDirectory = $Variables.RemoteSkyRealPluginDirectory
+                $InstallerName = $Variables.InstallerName
+                $JsonPath = "$OutputInstallDir/latest.json"
+                
+                $OptionalSkrAppPath = "";
+                if(Test-Path $OutputInstallDir/*.skrapp)
+                {
+                	$SkrFile = Get-ChildItem -Path $OutputInstallDir/*.skrapp -Name -Recurse
+                    $OptionalSkrAppPath = ", `"${SkrFile}`""
+                }
+                $AppFile = Get-ChildItem -Path $OutputInstallDir/*.exe -Name -Recurse
+                $JsonContent = @"
+                {
+                    "apiversion": "1.0",
+                    "files": ["{AppFile}"{OptionalSkrAppPath}],
+                    "version": "$Version"
+                }
+                "@.Replace("{AppFile}", "$AppFile").Replace("{OptionalSkrAppPath}", "$OptionalSkrAppPath")
+
+
+                Write-Host "##vso[task.setvariable variable=outputInstallDir;]${OutputInstallDir}"
+                Write-Host "##vso[task.setvariable variable=remoteSkyRealPluginDirectory;]${RemoteSkyRealPluginDirectory}"
+                Write-Host "##vso[task.setvariable variable=installerName;]${InstallerName}"
+
+                Set-Content -Path $JsonPath -Value $JsonContent
+            displayName: "Write latest.json file"
+            
+          - task: CopyFiles@2
+            displayName: Publish installers to directory
+            inputs:
+                SourceFolder: "$(outputInstallDir)"
+                Contents: |
+                    *.exe
+                    *.skrapp
+                    latest.json
+                TargetFolder: "$(remoteSkyRealPluginDirectory)\\$(Build.SourceBranchName)\\$(installerName)"
+                flattenFolders: true
+                CleanTargetFolder: ${{ eq(contains(variables['build.sourceBranch'], 'release/'), false) }}
+                
+          - task: CopyFiles@2
+            displayName: Publish latest.json to FastShare
+            inputs:
+                SourceFolder: "$(outputInstallDir)"
+                Contents: |
+                    latest.json
+                TargetFolder: "$(remoteSkyRealPluginDirectory)\\$(Build.SourceBranchName)\\$(installerName)"
+                OverWrite: true
