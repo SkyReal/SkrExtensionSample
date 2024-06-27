@@ -1,6 +1,6 @@
 steps:
 
-    - ${{ if eq(variables['build.reason'], 'PullRequest') }}:
+    - ${{ if ne(variables['build.reason'], 'PullRequest') }}:
           - pwsh: |
                 $Variables = ./ressources/SkrExtensionScripts/scripts/Get-Variables.ps1
                 $Version = $Variables.Version
