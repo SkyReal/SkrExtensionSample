@@ -1,3 +1,6 @@
+parameters:
+    - { name: deployInstaller, type: boolean }
+
 jobs:
     - job: BuildUEExtension
       timeoutInMinutes: 360
@@ -42,4 +45,5 @@ jobs:
                 
                 
           # Publish output
-          - template: ../steps/deploy-installer.yml
+          - ${{ if eq(parameters.deployInstaller, true) }}:
+                - template: ../steps/deploy-installer.yml

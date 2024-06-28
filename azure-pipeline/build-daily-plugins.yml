@@ -16,3 +16,5 @@ stages:
     - stage: Build
       jobs:
           - template: ./templates/jobs/build-ue-extensions.yml
+            parameters:
+                deployInstaller: true
