@@ -2,7 +2,8 @@
 	"ExtensionsPlugins":
 	[
 		"SampleSkrExtension",
-		"SkrCat_RightMenuExtension"
+		"SkrCat_RightMenuExtension",
+		"SkrEnv_SampleExtenion"
 	],
 	"SkyRealPluginsToIgnore":
 	[

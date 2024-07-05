@@ -66,6 +66,7 @@ csx/
 # Add here all you plugins
 !/src/Plugins/SampleSkrExtension/
 !/src/Plugins/SkrCat_RightMenuExtension/
+!/src/Plugins/SkrEnv_SampleExtenion/
 
 # SkyReal plugins temp
 /src/Content/__ExternalActors__
