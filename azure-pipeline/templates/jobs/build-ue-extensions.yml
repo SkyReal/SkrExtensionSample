@@ -47,3 +47,8 @@ jobs:
           # Publish output
           - ${{ if eq(parameters.deployInstaller, true) }}:
                 - template: ../steps/deploy-installer.yml
+                
+          # Clean repo
+          - template: ../steps/restore-repo.yml
+            parameters:
+              cleanCheckout: true
