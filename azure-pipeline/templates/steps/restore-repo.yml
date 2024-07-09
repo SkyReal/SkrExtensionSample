@@ -1,20 +1,19 @@
 parameters:
-    - name: checkout
-      type: string
-      default: self
-      values:
-          - self
-          - none
     - { name: cleanCheckout, type: boolean }
+    - { name: setupRepository, type: boolean }
 
 steps:
-    - checkout: ${{ parameters.checkout }}
-      lfs: true
-      fetchDepth: 1
-      submodules: recursive
-      clean: ${{ parameters.cleanCheckout }}
-
-    - ${{ if ne( parameters.checkout, 'none') }}:
+    - ${{ if parameters.cleanCheckout }}:
           - pwsh: |
+                git clean -ffdx
+                git reset --hard HEAD
+            displayName: "Clean repository"
+            
+    - ${{ if parameters.setupRepository }}:
+          - pwsh: |
+                $pathTmp = "." | Resolve-Path
+                write-host Path is $pathTmp
+                $path = "./ressources/SkrExtensionScripts/scripts/Setup-Repository.ps1" | Resolve-Path
+                write-host Path is $path
                 ./ressources/SkrExtensionScripts/scripts/Setup-Repository.ps1
             displayName: "Setup repository"

@@ -17,6 +17,7 @@ jobs:
           - template: ../steps/restore-repo.yml
             parameters:
               cleanCheckout: true
+              setupRepository: true
           
           # Build extension
           - pwsh: |
@@ -52,3 +53,4 @@ jobs:
           - template: ../steps/restore-repo.yml
             parameters:
               cleanCheckout: true
+              setupRepository: false
