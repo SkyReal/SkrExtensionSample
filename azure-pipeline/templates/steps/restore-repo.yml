@@ -3,6 +3,13 @@ parameters:
     - { name: setupRepository, type: boolean }
 
 steps:
+    - pwsh: |
+          write-host git lfs pull
+          git lfs pull
+          write-host git submodule update --init --recursive
+          git submodule update --init --recursive
+      displayName: "Init repository"
+      
     - ${{ if parameters.cleanCheckout }}:
           - pwsh: |
                 git clean -ffdx
