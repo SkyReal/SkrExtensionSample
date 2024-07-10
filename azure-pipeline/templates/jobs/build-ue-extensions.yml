@@ -12,6 +12,9 @@ jobs:
               - UE5_3_INSTALL_DIR
               - NSIS
         
+      variables:
+          versionPatch: $[counter(variables['build.sourceBranchName'], 0)]
+          
       steps:
           # Initialize build
           - template: ../steps/restore-repo.yml
@@ -19,7 +22,17 @@ jobs:
               cleanCheckout: true
               setupRepository: true
           
-          # Build extension
+          # Update build counter
+          - pwsh: |
+              $VariablesFileName = Variables.json
+              
+              $Document = Get-Content -Path $VariablesFileName | ConvertFrom-Json
+              $Document.VersionBuildCounter = $(versionPatch)
+              $Document | ConvertTo-Json | Set-Content -Path $VariablesFileName
+              
+            displayName: "Update build counter"
+          
+          # Build repository
           - pwsh: |
               $Variables = ./ressources/SkrExtensionScripts/scripts/Get-Variables.ps1
               $OutputInstallDir = $Variables.OutputInstallDir

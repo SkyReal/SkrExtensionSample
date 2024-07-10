@@ -21,6 +21,7 @@ This repository contains LFS files. Sometimes (for AzureDevOps for example), the
 3. Open git batch in the repository
 4. Write command `git remote set-url origin git://example.com/git.git/`
 5. Write command `git push`
+5. Write command `git lfs push`
 
 ## Build repository
 To customize this template for building your own extension plugins, follow these steps after repository setup:
