@@ -24,7 +24,7 @@ jobs:
           
           # Update build counter
           - pwsh: |
-              $VariablesFileName = Variables.json
+              $VariablesFileName = "./Variables.json"
               
               $Document = Get-Content -Path $VariablesFileName | ConvertFrom-Json
               $Document.VersionBuildCounter = $(versionPatch)
