@@ -29,6 +29,7 @@ jobs:
               $Document = Get-Content -Path $VariablesFileName | ConvertFrom-Json
               $Document.VersionBuildCounter = $(versionPatch)
               $Document | ConvertTo-Json | Set-Content -Path $VariablesFileName
+              Write-Host $Document
               
             displayName: "Update build counter"
           
