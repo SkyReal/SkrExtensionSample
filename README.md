@@ -64,6 +64,9 @@ When developing and testing your plugin code, creating an installer can be too h
 5. Rename the extension of the text file into `.skrlnk`
 Now, each time SkyRealVR will run, it will automatically load or latest version build using script `./Build-UEExtension.ps1`.
 
+If, for some reasons, you need to override some variables of the `Variables.json` without comit them into git, you can create a `Variables_local.json` file in the same directory. 
+The file (that is in the .gitignore) will automatically be loaded to override data of `Variables.json` (you don't need to override every member, only the one required for your local work).
+
 # Upgrade SkyReal version/branch
 When upgrading your project to a newer version of SkyRealVR, follow these steps:
 1. Edit file `Variables.json` in the root folder

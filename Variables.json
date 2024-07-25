@@ -1,9 +1,9 @@
 {
 	"ExtensionsPlugins":
 	[
-		"SampleSkrExtension",
 		"SkrCat_RightMenuExtension",
-		"SkrEnv_SampleExtenion"
+		"SkrEnv_SampleExtenion",
+		"SkrToolbar_CamControllerSampleExtension"
 	],
 	"SkyRealPluginsToIgnore":
 	[

@@ -64,9 +64,9 @@ csx/
 /src/Content/MetaHumans
 /src/Plugins/*
 # Add here all you plugins
-!/src/Plugins/SampleSkrExtension/
 !/src/Plugins/SkrCat_RightMenuExtension/
 !/src/Plugins/SkrEnv_SampleExtenion/
+!/src/Plugins/SkrToolbar_CamControllerSampleExtension/
 
 # SkyReal plugins temp
 /src/Content/__ExternalActors__
@@ -78,3 +78,6 @@ csx/
 
 # Exclude build directories
 /Output/*
+
+# Exclude local override data
+Variables_local.json
