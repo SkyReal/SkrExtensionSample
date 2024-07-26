@@ -14,6 +14,9 @@ steps:
           - pwsh: |
                 git clean -ffdx
                 git reset --hard HEAD
+                git fetch --prune
+                git reflog expire --expire=now --all
+                git gc --aggressive --prune=now
             displayName: "Clean repository"
             
     - ${{ if parameters.setupRepository }}:

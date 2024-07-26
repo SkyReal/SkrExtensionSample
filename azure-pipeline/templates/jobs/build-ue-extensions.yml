@@ -11,10 +11,10 @@ jobs:
               - UEAgent -equals true
               - UE5_3_INSTALL_DIR
               - NSIS
-        
+       
       variables:
           versionPatch: $[counter(variables['build.sourceBranchName'], 0)]
-          
+           
       steps:
           # Initialize build
           - template: ../steps/restore-repo.yml
@@ -32,8 +32,8 @@ jobs:
               Write-Host $Document
               
             displayName: "Update build counter"
-          
-          # Build repository
+            
+          # Build extension
           - pwsh: |
               $Variables = ./ressources/SkrExtensionScripts/scripts/Get-Variables.ps1
               $OutputInstallDir = $Variables.OutputInstallDir
@@ -63,7 +63,7 @@ jobs:
           - ${{ if eq(parameters.deployInstaller, true) }}:
                 - template: ../steps/deploy-installer.yml
                 
-          # Clean repo
+          # Clean repository
           - template: ../steps/restore-repo.yml
             parameters:
               cleanCheckout: true
