@@ -65,10 +65,12 @@ csx/
 /src/Plugins/*
 # Add here all you plugins
 !/src/Plugins/SkrCat_RightMenuExtension/
+!/src/Plugins/SkrNetwork_RemoteUserControl/
 !/src/Plugins/SkrEnv_SampleExtenion/
 !/src/Plugins/SkrToolbar_CamControllerSampleExtension/
 
 # SkyReal plugins temp
+/src/Build/*
 /src/Content/__ExternalActors__
 /src/Content/__ExternalObjects__
 /src/DerivedDataCache/*

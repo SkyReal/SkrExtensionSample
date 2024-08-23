@@ -1,7 +1,7 @@
 {
-	"ExtensionsPlugins":
-	[
+	"ExtensionsPlugins": [
 		"SkrCat_RightMenuExtension",
+		"SkrNetwork_RemoteUserControl",
 		"SkrEnv_SampleExtenion",
 		"SkrToolbar_CamControllerSampleExtension"
 	],
