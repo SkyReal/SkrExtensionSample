@@ -67,6 +67,7 @@ csx/
 !/src/Plugins/SkrCat_RightMenuExtension/
 !/src/Plugins/SkrNetwork_RemoteUserControl/
 !/src/Plugins/SkrEnv_SampleExtenion/
+!/src/Plugins/SkrEnv_UnicolorSkyBox/
 !/src/Plugins/SkrToolbar_CamControllerSampleExtension/
 
 # SkyReal plugins temp

@@ -3,6 +3,7 @@
 		"SkrCat_RightMenuExtension",
 		"SkrNetwork_RemoteUserControl",
 		"SkrEnv_SampleExtenion",
+		"SkrEnv_UnicolorSkyBox",
 		"SkrToolbar_CamControllerSampleExtension"
 	],
 	"SkyRealPluginsToIgnore":
