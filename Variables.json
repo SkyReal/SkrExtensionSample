@@ -1,4 +1,8 @@
 {
+	// Declare the project root file
+	"InputUnrealProject": "src\\Playground.uproject", // The local path of the root project file
+
+	// Declare the extensions of your project
 	"ExtensionsPlugins": [
 		"SkrCat_RightMenuExtension",
 		"SkrNetwork_RemoteUserControl",
@@ -6,24 +10,30 @@
 		"SkrEnv_UnicolorSkyBox",
 		"SkrToolbar_CamControllerSampleExtension"
 	],
-	"SkyRealPluginsToIgnore":
-	[
+	// Declare the SkyReal plugins to ignore
+	"SkyRealPluginsToIgnore": [
 		"TeamSpeak_SDK"
 	],
-	"OnlineSkyRealPluginURL":"https://download.sky-real.com/SkyRealDownload/SkyRealSuite",
-	"RemoteSkyRealPluginDirectory":"\\\\192.168.0.6\\SkyRealDownload\\SkyRealSuite",
-	"SkyRealPluginRelease":"1.19",
-	"SkyRealPluginPatch":"latest",
-	"InstallerName":"SampleSkrExtension",
-	"ProductUpgradeCode":"641C1FE1-7B3E-4184-92B4-DD701FE7F4E9",
-	"CompanyName":"SkrTechnologies",
-	"Version":"1.19.0",
-	"VersionBuildCounter":"0",
-	"UnrealEditorEnvironmentVariable": "UE5_4_INSTALL_DIR",
-	"SkyRealVersion":"1.19",
-	"PluginDownloadDir":"ressources\\skrplugins",
-	"OutputBuildDir":"Output\\Build",
-	"OutputInstallDir":"Output\\Install",
-	"InputUnrealProject": "src\\Playground.uproject"
-	
+
+	// Declare the download variables
+	"RemoteSkyRealPluginDirectory": "\\\\192.168.0.6\\SkyRealDownload\\SkyRealSuite", // Local skyreal auto updater download repository
+	"OnlineSkyRealPluginURL": "https://download.sky-real.com/SkyRealDownload/SkyRealSuite", // Online website where to download packages
+	"SkyRealPluginRelease": "1.19", // The release used to download the plugins
+	"SkyRealPluginPatch": "latest", // The patch used to download the plugins (can be latest, RC1, ... 1.XX, ...)
+	"PluginDownloadDir": "ressources\\skrplugins", // The local output directory where to download the plugins
+
+	// Installer variables
+	"InstallerName": "SampleSkrExtension", // The output name of the installer
+	"ProductUpgradeCode": "641C1FE1-7B3E-4184-92B4-DD701FE7F4E9", // The unique ID of the extesion (modify it foreach project)
+	"CompanyName": "SkrTechnologies", // The name of the company that provide the installer
+	"Version": "1.19.0", // The version number of the installer (usualy the same as the plugins you used)
+	"VersionBuildCounter": "0", // The build counter (last digit of your version) used during devops piplines
+	"SkyRealVersion": "1.19", // The compatible Major.Minor version of your extensions
+	"OutputInstallDir": "Output\\Install", // The output of the install exe and skrapp files.
+
+	// Build variables
+	//"UnrealEditorRootDirLocalFullPath": "C:\\Program Files\\Epic Games\\UE_5.4", // The install directory of Unreal
+	"UnrealEditorEnvironmentVariable": "UE5_4_INSTALL_DIR", // The environment variable used as fallback if the UnrealEditorRootDirLocalFullPath is not set (usefull when developing on differents computers)
+	"OutputBuildDir": "Output\\Build" // The output build directory where the cook content of your plugins are sets
+
 }
