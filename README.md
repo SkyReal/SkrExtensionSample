@@ -56,13 +56,13 @@ To deploy installer, take care to package both .exe and .skrapp file on the clie
 The installer will automatically create a `.skrlnk` into directory `C:\ProgramData\Skydea\skyrealvr\X.XX\extensions` that will contains the path to the SkrExtension.json file of the plugin pack.
 
 # Daily life work
-When developing and testing your plugin code, creating an installer can be too heavy. Another way to improve process time is to :
+When developing and testing your plugin code, creating an installer can be too heavy. Another way to improve process time is to:
 1. Setup your repository if not already done
 2. Open powershell as admin in the directory `\ressources\SkrExtensionScripts\scripts` and run script `./Build-UEExtension.ps1`.
-3. In the output directory (`\Output\Build` by default that can be changed in `Variables.json`), copy the path of the file `SkrExtensions.json`
-4. In the directory `C:\ProgramData\Skydea\skyrealvr\X.XX\extensions` where X.XX is the version number of SkyRealVR, create an empty text file and paste the path previously copied.
-5. Rename the extension of the text file into `.skrlnk`
-Now, each time SkyRealVR will run, it will automatically load or latest version build using script `./Build-UEExtension.ps1`.
+3. In the output directory (`\Output\Build` by default that can be changed in `Variables.json`), cut the file `EXTENSION_NAME.skrlnk` (where `EXTENSION_NAME` is the name installer specified in the `Variables.json` file)
+4. Paste it in the directory `C:\ProgramData\Skydea\skyrealvr\X.XX\extensions` where X.XX is the version number of SkyRealVR.
+
+Now, each time SkyRealVR (version X.XX) will run, it will automatically load or latest version build using script `./Build-UEExtension.ps1`.
 
 If, for some reasons, you need to override some variables of the `Variables.json` without comit them into git, you can create a `Variables_local.json` file in the same directory. 
 The file (that is in the .gitignore) will automatically be loaded to override data of `Variables.json` (you don't need to override every member, only the one required for your local work).
@@ -70,7 +70,7 @@ The file (that is in the .gitignore) will automatically be loaded to override da
 # Upgrade SkyReal version/branch
 When upgrading your project to a newer version of SkyRealVR, follow these steps:
 1. Edit file `Variables.json` in the root folder
-	*  Edit the field `SkyRealPluginRelease` to specify the current version of SkyRealVR (it could either be X.XX of master).
+	* Edit the field `SkyRealPluginRelease` to specify the current version of SkyRealVR (it could either be X.XX of master).
 	* Edit the field `SkyRealPluginPatch` to specify the current patch version of SkyRealVR (it could either be X.XX.X of latest).
 	* Edit the field `SkyRealVersion` to specify the current version of SkyRealVR (it could only be X.XX).
 	* Edit the field `UnrealEditorEnvironmentVariable` to specify the new Unreal editor environment variable. Usually, the version of Unreal changes at each SkyRealVR version update.
