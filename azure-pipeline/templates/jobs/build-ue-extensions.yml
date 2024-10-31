@@ -2,8 +2,27 @@ parameters:
     - { name: deployInstaller, type: boolean }
 
 jobs:
+    - job: RetreiveVersionJob
+      steps:
+          # Initialize build
+          - template: ../steps/restore-repo.yml
+            parameters:
+              cleanCheckout: true
+              setupRepository: false
+
+          - pwsh: |
+    
+              $Variables = ./ressources/SkrExtensionScripts/scripts/Get-Variables.ps1
+              $TmpVersion = $Variables.Version
+              Write-Host Variables: $TmpVersion
+              
+              Write-Host "##vso[task.setvariable variable=Version;isOutput=true]$TmpVersion"
+              
+            displayName: "GetVersion"
+    
     - job: BuildUEExtension
       timeoutInMinutes: 360
+      dependsOn: RetreiveVersionJob
       displayName: Build UE Extension
       pool:
           name: "Default"
@@ -13,7 +32,7 @@ jobs:
               - NSIS
        
       variables:
-          versionPatch: $[counter(variables['build.sourceBranchName'], 0)]
+          versionPatch: $[counter(dependencies.RetreiveVersionJob.outputs['GetVersion.Version'], 0)]
            
       steps:
           # Initialize build
@@ -24,6 +43,8 @@ jobs:
           
           # Update build counter
           - pwsh: |
+              Write-Host Version patch is: $(versionPatch)
+
               $VariablesFileName = "./Variables.json"
               
               $Document = Get-Content -Path $VariablesFileName | ConvertFrom-Json
