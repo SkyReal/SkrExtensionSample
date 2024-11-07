@@ -34,6 +34,50 @@
 	// Build variables
 	//"UnrealEditorRootDirLocalFullPath": "C:\\Program Files\\Epic Games\\UE_5.4", // The install directory of Unreal
 	"UnrealEditorEnvironmentVariable": "UE5_4_INSTALL_DIR", // The environment variable used as fallback if the UnrealEditorRootDirLocalFullPath is not set (usefull when developing on differents computers)
-	"OutputBuildDir": "Output\\Build" // The output build directory where the cook content of your plugins are sets
+	"OutputBuildDir": "Output\\Build", // The output build directory where the cook content of your plugins are sets
+	
+	// Hooks scripts declaration
+	"Hooks": [ 
+		{
+			// Hook script called before the skyreal plugins download starts
+			"path": "ressources\\hooks\\setup_download_before.ps1",
+			"trigger": "setup_download_before"
+		},
+		{
+			// Hook script called after the skyreal plugins download starts
+			"path": "ressources\\hooks\\setup_download_after.ps1",
+			"trigger": "setup_download_after"
+		},
+		{
+			// Hook script called before the plugins symlinks creation
+			"path": "ressources\\hooks\\setup_symlinks_before.ps1",
+			"trigger": "setup_symlinks_before"
+		},
+		{
+			// Hook script called after the plugins symlinks creation
+			"path": "ressources\\hooks\\setup_symlinks_after.ps1",
+			"trigger": "setup_symlinks_after"
+		},
+		{
+			// Hook script called before building extension
+			"path": "ressources\\hooks\\build_extension_before.ps1",
+			"trigger": "build_extension_before"
+		},
+		{
+			// Hook script called after building extension
+			"path": "ressources\\hooks\\build_extension_after.ps1",
+			"trigger": "build_extension_after"
+		},
+		{
+			// Hook script called before building extension's installer
+			"path": "ressources\\hooks\\build_installer_before.ps1",
+			"trigger": "build_installer_before"
+		},
+		{
+			// Hook script called after building extension's installer
+			"path": "ressources\\hooks\\build_installer_after.ps1",
+			"trigger": "build_installer_after"
+		},
+	],
 
 }

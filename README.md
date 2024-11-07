@@ -28,16 +28,19 @@ To customize this template for building your own extension plugins, follow these
 1. Delete following sample project in `\src\Plugins`:
 	* `SampleSkrExtension`
 	* `SkrCat_RightMenuExtension`
+	* `SkrCat_RightMenuExtension`
 2. Open `\src\Playground.uproject` with Unreal editor and create as many plugins as needed.
 	* Go to `edit\plugins`
 	* On the top left corner, click `+ Add`
 	* Select `Content Only` and specify Author, Description and Plugin Name (this information will be required in following steps)
 	* Click on `Create Plugin`
 3. Edit file `Variables.json` in the root folder
-	*  In the array field `ExtensionsPlugins`, add an entry foreach plugin created before with the name of the plugin.
+	* In the array field `ExtensionsPlugins`, add an entry foreach plugin created before with the name of the plugin.
 	* In the array field `SkyRealPluginsToIgnore`, add every SkyRealVR plugin names not required for your project (fewer there are plugin, faster the compilation is).
 	* In the string field `InstallerName`, specify the name of the installer of your plugins pack that will appear in windows program list .
 	* In the string field `ProductUpgradeCode`, generate a unique Guid that will be used to manage auto-uninstall when upgrading plugin.
+	* In the array field `hooks`, clean all entries (see Hooks chapter bellow for more informations)
+4. Delete the directory `ressources\hooks` (see Hooks chapter bellow for more informations)
 
 # Build installers
 
@@ -75,6 +78,22 @@ When upgrading your project to a newer version of SkyRealVR, follow these steps:
 	* Edit the field `SkyRealVersion` to specify the current version of SkyRealVR (it could only be X.XX).
 	* Edit the field `UnrealEditorEnvironmentVariable` to specify the new Unreal editor environment variable. Usually, the version of Unreal changes at each SkyRealVR version update.
 2. If you use the Azure pipelines, edit the file `azure-pipeline\templates\jobs\build-ue-extensions.yml` and edit `job/pool/demands/UE5_X_INSTALL_DIR` into the Unreal environment variable you use.
+
+# Use scripts Hooks
+Sometime, hooks scripts can be usefull to insert some piece of code within the build pipeline without any change on the pipeline scripts.
+If you need to do so, you can add within `Variables.json` an array field called `Hooks`.
+Foreach hooks, add an object in the json composed of :
+* **path**: The path (relative to repo root directory) of the hook powershell script.
+* **trigger**: The trigger raising the hook. Available values:
+  * **setup_download_before**: Hook script called before the skyreal plugins download starts
+  * **setup_download_after**: Hook script called after the skyreal plugins download starts
+  * **setup_symlinks_before**: Hook script called before the plugins symlinks creation
+  * **setup_symlinks_after**: Hook script called after the plugins symlinks creation
+  * **build_extension_before**: Hook script called before building extension
+  * **build_extension_after**: Hook script called after building extension
+  * **build_installer_before**: Hook script called before building extension's installer
+  * **build_installer_after**: Hook script called after building extension's installer
+
 
 # Use Azure pipelines to build your data
 To support Azure pipelines for automation builds, create a custom agent with the following prerequisites:

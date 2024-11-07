@@ -1,0 +1,1 @@
+Write-Host "Hook build_installer_before"
