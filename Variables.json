@@ -78,6 +78,6 @@
 			"path": "ressources\\hooks\\build_installer_after.ps1",
 			"trigger": "build_installer_after"
 		},
-	],
+	]
 
 }
