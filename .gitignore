@@ -63,6 +63,7 @@ csx/
 # Symlinks are seen as files by Git the exclusion must not end with a slash
 /src/Content/MetaHumans
 /src/Plugins/*
+
 # Add here all you plugins
 !/src/Plugins/SkrCat_RightMenuExtension/
 !/src/Plugins/SkrNetwork_RemoteUserControl/
@@ -78,6 +79,11 @@ csx/
 /src/Intermediate/*
 /src/Platforms/*
 /src/Saved/*
+
+# Force include FFMPEG
+!/src/Plugins/SkrToolbar_CamControllerSampleExtension/Resources/FFMPEG/**/*
+/src/Plugins/SkrToolbar_CamControllerSampleExtension/Resources/FFMPEG/ffmpeg-7.0.2-essentials_build/doc
+/src/Plugins/SkrToolbar_CamControllerSampleExtension/Resources/FFMPEG/ffmpeg-7.0.2-essentials_build/presets
 
 # Exclude build directories
 /Output/*
