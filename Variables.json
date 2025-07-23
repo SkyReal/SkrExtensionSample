@@ -35,6 +35,7 @@
 	//"UnrealEditorRootDirLocalFullPath": "C:\\Program Files\\Epic Games\\UE_5.5", // The install directory of Unreal
 	"UnrealEditorEnvironmentVariable": "UE5_5_INSTALL_DIR", // The environment variable used as fallback if the UnrealEditorRootDirLocalFullPath is not set (usefull when developing on differents computers)
 	"OutputBuildDir": "Output\\Build", // The output build directory where the cook content of your plugins are sets
+	"OutputEditor": "true", // When building repository, also output editor version of your extensions for use in editor experience
 	
 	// Hooks scripts declaration
 	"Hooks": [ 
