@@ -1,0 +1,11 @@
+{
+  "Name": "SkrEnv_SampleExtenion",
+  "DisplayName": "SkrEnv_SampleExtenion",
+  "Description": "",
+  "Version": "null",
+  "PackageDependencies": {},
+  "PackageMetadatas": {},
+  "TargetPlatform": "Skyreal",
+  "PlatformVersion": "null",
+  "Author": "Skr Technologies"
+}

@@ -1,0 +1,11 @@
+{
+  "Name": "SkrNetwork_RemoteUserControl",
+  "DisplayName": "SkrNetwork_RemoteUserControl",
+  "Description": "",
+  "Version": "null",
+  "PackageDependencies": {},
+  "PackageMetadatas": {},
+  "TargetPlatform": "Skyreal",
+  "PlatformVersion": "null",
+  "Author": "Skr Technologies"
+}

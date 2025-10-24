@@ -1,0 +1,11 @@
+{
+  "Name": "SkrEnv_UnicolorSkyBox",
+  "DisplayName": "SkrEnv_UnicolorSkyBox",
+  "Description": "",
+  "Version": "null",
+  "PackageDependencies": {},
+  "PackageMetadatas": {},
+  "TargetPlatform": "Skyreal",
+  "PlatformVersion": "null",
+  "Author": ""
+}

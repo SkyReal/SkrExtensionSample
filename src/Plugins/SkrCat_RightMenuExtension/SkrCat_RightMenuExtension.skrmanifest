@@ -1,0 +1,11 @@
+{
+  "Name": "SkrCat_RightMenuExtension",
+  "DisplayName": "SkrCat_RightMenuExtension",
+  "Description": "Sample plugin for demonstrate right menu extension",
+  "Version": "null",
+  "PackageDependencies": {},
+  "PackageMetadatas": {},
+  "TargetPlatform": "Skyreal",
+  "PlatformVersion": "null",
+  "Author": "SkrTech"
+}
